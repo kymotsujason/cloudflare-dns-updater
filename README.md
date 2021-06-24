@@ -24,7 +24,8 @@ A step by step series of examples that tell you how to get a development env run
 ```
 1. Clone the repo
 2. npm install
-3. Run with your favorite process manager (I use PM2)
+3. Create a .env file and create the AUTH variable with your API key (without the Bearer part)
+4. Run with your favorite process manager (I use PM2)
 ```
 
 
