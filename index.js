@@ -35,19 +35,21 @@ async function Main() {
                 return;
             } else {
                 for (let j = 0; j < res.data.result.length; j++) {
-                    axios.put(
-                        url +
-                            zones[i] +
-                            "/dns_records/" +
-                            res.data.result[j].id,
-                        {
-                            type: "A",
-                            name: res.data.result[j].name,
-                            content: newIp,
-                            ttl: 1,
-                            proxied: res.data.result[j].proxied,
-                        }
-                    );
+                    if (res.data.result[j].type === "A") {
+                        axios.put(
+                            url +
+                                zones[i] +
+                                "/dns_records/" +
+                                res.data.result[j].id,
+                            {
+                                type: "A",
+                                name: res.data.result[j].name,
+                                content: newIp,
+                                ttl: 1,
+                                proxied: res.data.result[j].proxied,
+                            }
+                        );
+                    }
                 }
             }
         });
